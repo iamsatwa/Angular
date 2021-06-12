@@ -1,8 +1,12 @@
 <div class="container mb-2">
-     <h3 class="text-center">{{CurrentTodo.title}}</h3>
+     <h4 class="text-center" [ngClass]="{'strike':!CurrentTodo.active}">{{CurrentTodo.title}}</h4>
      <p class="text-center">{{CurrentTodo.desc}}</p>
+     <div class="mb-3 form-check" class="text-center">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" (click)="onCheckBoxClick(CurrentTodo)" [checked]="!CurrentTodo.active">
+          <label class="form-check-label" for="exampleCheck1">Mark as done</label>
+        </div>
      <div class="text-center">
-          <button class="btn btn-danger" (click)="onClick(CurrentTodo)">Delete</button>
+          <button class="btn btn-danger btn-sm" (click)="onClick(CurrentTodo)">Delete</button>
      </div>
      
 </div>
